@@ -164,7 +164,7 @@ print("opcion 2: Hacer una compra")
 print("opcion 3: Borrar un producto")
 print("********************************")     
 
-opcion = int(input("Elige opción"))
+opcion = int(input("Elige opción: "))
 
 if opcion == 1:
     print("\n".join(TotalProductos))
@@ -181,10 +181,12 @@ elif opcion == 2:
     print("********************************")  
 
         
-    importe = float(input("Introduzca el importe que va a dar"))
-    total = 0
+    importe = float(input("Introduzca el importe que va a dar: "))
+    
+    
 
     while continuar == True or importe >= 10:
+        total = 0
         compra = input("¿Qúe producto vas a comprar?")
 
         if compra in TotalProductos:
@@ -196,11 +198,12 @@ elif opcion == 2:
                 total = total + 12
                 importe = importe - total
             
-            if importe == 0.0:
+            if importe == 0:
                 print(f"El producto adquirido es: {compra} ")
                 print(f"El cambio es: {importe} euros")
                 print("Ya no tiene importe")
-            elif importe < 0.0:
+                exit()
+            elif importe < 0:
                 print("Importe insuficiente") 
                 exit()
             else:
@@ -220,6 +223,7 @@ elif opcion == 2:
                     exit()
         else:
             print("El producto no esta en el listado")
+            exit()
         
 elif opcion == 3:
     producto_eliminar = input("¿Qúe producto vas a eliminar?")
